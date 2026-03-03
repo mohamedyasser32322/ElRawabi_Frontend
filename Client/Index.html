@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الروابي | متابعة حالة العقار</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold m-0 text-dark">الروابي للتطوير العقاري</h2>
+            <button class="btn-gallery-new">
+                 <i class="fa-solid fa-images"></i> صور المشروع
+            </button>
+        </div>
+
+        <div class="custom-client-card shadow-sm mb-4">
+            <div class="row g-0">
+                <div class="col-md-3 data-item">
+                    <label>اسم العميل</label>
+                    <h6>عماد ياسر</h6>
+                </div>
+                <div class="col-md-3 data-item">
+                    <label>المشروع</label>
+                    <h6>عمارة الروابي 105 - حي البوادي</h6>
+                </div>
+                <div class="col-md-2 data-item">
+                    <label>رقم الوحدة</label>
+                    <h6>شقة 12 - الدور 3</h6>
+                </div>
+                <div class="col-md-2 data-item">
+                    <label>موعد التسليم</label>
+                    <h6 class="blue-text">فبراير 2026</h6>
+                </div>
+                <div class="col-md-2 status-section">
+                    <span class="status-dot"></span>
+                    <strong>حساب نشط</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="tracking-card-new shadow-sm p-4">
+            <h5 class="fw-bold mb-2 tracking-header">
+                <i class="fa-solid fa-bars-staggered"></i> مراحل الإنجاز
+            </h5>
+            
+            <div class="timeline-wrapper">
+                <div class="line-container">
+                    <div class="line-base"></div>
+                    <div class="line-progress" style="width: 66.6%;"></div>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-box active">
+                        <div class="icon-circle"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="step-text"><b>توقيع العقود</b><span>2025/01/10</span></div>
+                    </div>
+                    <div class="step-box active">
+                        <div class="icon-circle"><i class="fa-solid fa-border-all"></i></div>
+                        <div class="step-text"><b>الأساسات</b><span>2025/03/15</span></div>
+                    </div>
+                    <div class="step-box active">
+                        <div class="icon-circle"><i class="fa-solid fa-building"></i></div>
+                        <div class="step-text"><b>العظم</b><span>2025/08/20</span></div>
+                    </div>
+                    <div class="step-box active">
+                        <div class="icon-circle"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                        <div class="step-text"><b>تأسيس الخدمات</b><span>2025/12/05</span></div>
+                    </div>
+                    <div class="step-box current">
+                        <div class="icon-circle"><i class="fa-solid fa-house-chimney-window"></i></div>
+                        <div class="step-text"><b class="blue-text">اللياسة والواجهات</b><span class="blue-text">جاري التنفيذ</span></div>
+                    </div>
+                    <div class="step-box disabled">
+                        <div class="icon-circle"><i class="fa-solid fa-faucet-drip"></i></div>
+                        <div class="step-text"><b>التشطيبات</b><span>--</span></div>
+                    </div>
+                    <div class="step-box disabled">
+                        <div class="icon-circle"><i class="fa-solid fa-key"></i></div>
+                        <div class="step-text"><b>التسليم</b><span>--</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-2 pt-4 border-top flex-row-reverse">
+                <button class="btn-action btn-logout-highlight" onclick="logout()">
+                    <span>تسجيل الخروج</span> <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+                <a href="https://wa.me/966XXXXXXXXX" class="btn-action whatsapp-btn-new">
+                    <span>تواصل واتساب</span> <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() { window.location.href = '/Login.html'; }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* إعدادات عامة */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Cairo', sans-serif !important;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #f4f7f6;
+}
+
+.login-container {
+    height: 100vh;
+}
+
+/* قسم الصورة الجانبية */
+.side-image {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* قسم الفورم */
+.login-section {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+}
+
+.brand-name {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #1a252f;
+    margin-bottom: 0;
+}
+
+.gold-text {
+    color: #b59410;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* تنسيق العناوين فوق المدخلات */
+.form-label-custom {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6c757d;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* تنسيق حقول الإدخال */
+.form-control {
+    border: none;
+    border-bottom: 2px solid #eee;
+    border-radius: 0;
+    padding: 12px 5px;
+    transition: 0.3s;
+    text-align: right;
+    direction: rtl;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #b59410;
+    background-color: #fafafa;
+}
+
+/* زر تسجيل الدخول */
+.btn-submit {
+    background-color: #1a252f;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 800;
+    margin-top: 30px;
+    border: none;
+    transition: 0.4s;
+}
+
+.btn-submit:hover {
+    background-color: #b59410;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* التوافق مع الموبايل */
+@media (max-width: 768px) {
+    body, html { overflow: auto; }
+    .side-image { 
+        height: 35vh; 
+        display: flex !important; 
+    }
+    .login-section { 
+        height: 65vh; 
+        padding: 40px 20px; 
+    }
+    .brand-name { 
+        font-size: 2.8rem; 
+    }
+}
