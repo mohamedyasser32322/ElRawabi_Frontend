@@ -47,7 +47,6 @@ body, html {
     text-transform: uppercase;
 }
 
-/* تنسيق العناوين فوق المدخلات */
 .form-label-custom {
     font-size: 14px;
     font-weight: 700;
@@ -56,7 +55,7 @@ body, html {
     display: block;
 }
 
-/* تنسيق حقول الإدخال */
+/* حقول الإدخال Underline */
 .form-control {
     border: none;
     border-bottom: 2px solid #eee;
@@ -83,12 +82,27 @@ body, html {
     margin-top: 30px;
     border: none;
     transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn-submit:hover {
     background-color: #b59410;
     color: white;
     transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* تنبيه الخطأ */
+.alert-danger {
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 /* التوافق مع الموبايل */
@@ -105,4 +119,23 @@ body, html {
     .brand-name { 
         font-size: 2.8rem; 
     }
+}
+
+
+/* تثبيت مساحة رسالة الخطأ لمنع اهتزاز الصفحة */
+.error-container {
+    min-height: 55px; /* مساحة محجوزة مسبقاً */
+    margin-top: 15px;
+}
+
+/* حركة ظهور ناعمة */
+#errorMessage {
+    animation: fadeIn 0.4s ease-in-out;
+    border-radius: 8px;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

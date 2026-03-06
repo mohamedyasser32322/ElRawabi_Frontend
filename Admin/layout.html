@@ -1,0 +1,112 @@
+<style>
+    :root {
+        --primary-dark: #1a252f; 
+        --accent-gold: #b38e44; 
+        --bg-light: #f4f7f6;
+        --sidebar-width: 280px; 
+        --white: #ffffff;
+    }
+    html, body { height: 100%; margin: 0; overflow: hidden; font-family: 'Tajawal', sans-serif; direction: rtl; }
+    .app-wrapper { display: flex; height: 100vh; width: 100vw; }
+    
+    /* تثبيت عرض السايد بار تماماً */
+    .sidebar {
+        width: var(--sidebar-width); 
+        min-width: var(--sidebar-width);
+        max-width: var(--sidebar-width);
+        flex: 0 0 var(--sidebar-width); 
+        background: var(--white); 
+        border-left: 1px solid #eef0f2;
+        display: flex; 
+        flex-direction: column;
+        z-index: 100;
+    }
+    .brand-area { padding: 40px 20px; text-align: center; }
+    .brand-sub { color: var(--accent-gold); font-size: 11px; font-weight: bold; letter-spacing: 2px; }
+    .brand-name { color: var(--primary-dark); font-size: 28px; font-weight: 900; margin: 0; }
+    
+    .nav-menu { flex: 1; padding-top: 20px; }
+    .nav-menu ul { list-style: none; padding: 0; }
+    .nav-menu li a {
+        display: flex; 
+        align-items: center; 
+        padding: 15px 30px;
+        color: #555; 
+        text-decoration: none; 
+        transition: 0.3s;
+        font-weight: 500; 
+        border-right: 4px solid transparent;
+    }
+    /* تأثير عند الوقوف على القائمة */
+    .nav-menu li a:hover { background: #f9f9f9; color: var(--accent-gold); }
+    
+    /* حالة العنصر النشط */
+    .nav-menu li.active { background: #fcfcfc; }
+    .nav-menu li.active a { color: var(--accent-gold); border-right-color: var(--accent-gold); font-weight: 700; }
+    
+    .sidebar-footer { padding: 20px; border-top: 1px solid #eef0f2; }
+    
+    /* زر تسجيل الخروج */
+    .logout-btn {
+        width: 100%; 
+        padding: 12px; 
+        border: 1px solid #f1f5f9; 
+        background: #fff;
+        color: #ef4444; 
+        border-radius: 10px; 
+        cursor: pointer;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 10px; 
+        font-weight: 700;
+        transition: 0.3s;
+    }
+    .logout-btn:hover { background: #fef2f2; border-color: #fecaca; transform: translateY(-2px); }
+
+    .main-container { flex: 1; display: flex; flex-direction: column; background: var(--bg-light); overflow: hidden; }
+    .header-bar { 
+        height: 70px; 
+        background: var(--white); 
+        border-bottom: 1px solid #eef0f2; 
+        display: flex; 
+        align-items: center; 
+        padding: 0 30px; 
+    }
+    .content-viewport { flex: 1; padding: 25px; overflow-y: auto; }
+</style>
+
+<div class="app-wrapper">
+    <aside class="sidebar">
+        <div class="brand-area">
+            <span class="brand-sub">REAL ESTATE</span>
+            <h1 class="brand-name">EL RAWABI</h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li id="menu-Dashboard.html">
+                    <a href="Dashboard.html"><i class="fa-solid fa-chart-line me-2"></i> لوحة التحكم</a>
+                </li>
+                <li id="menu-Users.html">
+                    <a href="Users.html"><i class="fa-solid fa-users me-2"></i> المستخدمين</a>
+                </li>
+                <li id="menu-Projects.html">
+                    <a href="#"><i class="fa-solid fa-building me-2"></i> المشاريع</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="logout-btn" id="layout-logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i> 
+                <span>تسجيل الخروج</span>
+            </button>
+        </div>
+    </aside>
+    <main class="main-container">
+        <header class="header-bar">
+            <h4 id="layout-title" style="margin:0; color:var(--primary-dark); font-weight: 700;"></h4>
+        </header>
+        <div id="render-body" class="content-viewport">
+            </div>
+    </main>
+</div>

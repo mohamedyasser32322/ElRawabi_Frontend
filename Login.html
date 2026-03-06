@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الروابي | تسجيل الدخول</title>
     <link rel="stylesheet" href="/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 
@@ -13,6 +14,7 @@
         <div class="row g-0 login-container">
             
             <div class="col-md-6 side-image d-none d-md-flex"></div>
+
             <div class="col-md-6 col-12 login-section">
                 <div class="w-100" style="max-width: 450px;">
                     <div class="text-center mb-5">
@@ -20,19 +22,24 @@
                         <h2 class="brand-name">EL RAWABI</h2>
                     </div>
 
-                    <form>
+                    <form id="loginForm">
                         <div class="mb-4">
-                            <label class="small fw-bold text-muted text-uppercase mb-2">البريد الإلكتروني</label>
-                            <input type="email" class="form-control" placeholder="Example@gmail.com" required>
+                            <label class="form-label-custom">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" placeholder="Example@gmail.com" required>
                         </div>
                         <div class="mb-4">
-                            <label class="small fw-bold text-muted text-uppercase mb-2">كلمة المرور</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <label class="form-label-custom">كلمة المرور</label>
+                            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
                         </div>
                         
-                        <button type="submit" class="btn-submit w-100 shadow-sm">
-                            تسجيل الدخول
+                        <button type="submit" id="btnSubmit" class="btn-submit w-100 shadow-sm">
+                            <span id="btnText">تسجيل الدخول</span>
+                            <div id="btnLoader" class="spinner-border spinner-border-sm d-none" role="status"></div>
                         </button>
+
+                       <div class="error-container">
+                            <div id="errorMessage" class="alert alert-danger d-none small text-center"></div>
+                        </div>
                     </form>
 
                     <footer class="text-center mt-5 text-muted small">
@@ -45,6 +52,6 @@
     </div>
 
     <script src="/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.js"></script>
-    <script src="/script.js"></script>
+    <script src="/script/login.js"></script>
 </body>
 </html>

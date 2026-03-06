@@ -1,232 +1,87 @@
-/* ضبط عام */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif !important;
-}
+/* إعدادات عامة */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif !important; }
+body { background-color: #f8fafc; direction: rtl; padding: 20px; }
 
-body {
-    background-color: #f8fafc;
-    direction: rtl;
-    padding: 20px;
-}
+/* حل مشكلة الأيقونات */
+.fa-solid, .fas { font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; }
+.fa-brands { font-family: "Font Awesome 6 Brands" !important; }
 
-/* زر صور المشروع */
-.btn-gallery-new {
-    background: white;
-    color: #2563eb;
-    border: 2px solid #2563eb;
-    padding: 8px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-.btn-gallery-new:hover {
-    background: #2563eb;
-    color: white !important;
-}
-
-.btn-gallery-new i {
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900;
-    margin-left: 8px;
-}
-
-/* كارت بيانات العميل */
-.custom-client-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.data-item {
-    padding: 20px;
-    border-left: 1px solid #edf2f7;
-    text-align: right;
-}
-
-.data-item label {
-    font-size: 13px;
-    color: #64748b;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-}
-
+/* العناصر العلوية */
+.btn-gallery-new { background: white; color: #2563eb; border: 2px solid #2563eb; padding: 8px 25px; border-radius: 50px; font-weight: 700; transition: 0.3s; }
+.btn-gallery-new:hover { background: #2563eb; color: white !important; }
+.custom-client-card { background: white; border-radius: 12px; overflow: hidden; }
+.data-item { padding: 20px; border-left: 1px solid #edf2f7; text-align: right; }
+.data-item label { font-size: 13px; color: #64748b; font-weight: 600; display: block; margin-bottom: 5px; }
 .data-item h6 { font-weight: 800; margin: 0; }
-
-.status-section {
-    background: #f1f5f9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
+.status-section { background: #f1f5f9; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .status-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; }
-.blue-text { color: #2563eb !important; }
 
-/* --- نظام التتبع --- */
+/* --- نظام التتبع (Timeline) --- */
+.tracking-card-new { background: white; border-radius: 15px; }
+.timeline-wrapper { position: relative; padding: 40px 0; margin-top: 20px; }
 
-/* تنسيق عنوان مراحل الإنجاز والأيقونة */
-.tracking-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #1e293b;
+/* الخطوط (z-index: 1) */
+.line-container { 
+    position: absolute; top: 67px; left: 7%; right: 7%; 
+    height: 4px; z-index: 1; 
+}
+.line-base { width: 100%; height: 100%; background: #edf2f7; border-radius: 10px; }
+.line-progress { position: absolute; top: 0; right: 0; height: 100%; background: #10b981; border-radius: 10px; transition: width 0.4s ease-in-out; }
+
+/* الحاويات (z-index: 2 عشان تكون فوق الخط) */
+.steps-container { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; }
+
+.step-box { 
+    flex: 1; display: flex; flex-direction: column; align-items: center; 
+    text-align: center; transition: 0.4s; 
+    /* شيلنا الـ opacity من هنا عشان الدائرة متشفش اللي وراها */
 }
 
-.tracking-header i {
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900;
-    color: #2563eb;
-    background: #eff6ff;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 18px;
-}
-.tracking-card-new {
-    background: white;
-    border-radius: 15px;
-}
-
-.timeline-wrapper {
-    position: relative;
-    padding: 40px 0;
-    margin-top: 20px;
-}
-
-.line-container {
-    position: absolute;
-    top: 67px;
-    left: 7%;
-    right: 7%;
-    height: 6px;
-    z-index: 1;
-}
-
-.line-base {
-    width: 100%; height: 100%;
-    background: #edf2f7;
-    border-radius: 10px;
-}
-
-.line-progress {
-    position: absolute;
-    top: 0; right: 0;
-    height: 100%;
-    background: #10b981;
-    border-radius: 10px;
-    transition: width 1s ease;
-}
-
-.steps-container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-}
-
-.step-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.icon-circle {
-    width: 55px; height: 55px;
-    background: white;
-    border: 2px solid #e2e8f0;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: #cbd5e0;
-    margin-bottom: 15px;
+.icon-circle { 
+    width: 55px; height: 55px; 
+    background: white; /* خلفية بيضاء صريحة عشان تداري الخط */
+    border: 2px solid #e2e8f0; 
+    border-radius: 14px; display: flex; align-items: center; justify-content: center; 
+    font-size: 20px; color: #cbd5e0; margin-bottom: 12px; 
     transition: 0.3s;
+    position: relative; 
+    z-index: 5; /* تأكيد إنها فوق الخط */
 }
 
-.icon-circle i {
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900;
-    display: inline-block !important;
+/* النصوص والتواريخ (الشفافية هنا بس للمراحل اللي لسه مجاتش) */
+.step-text { 
+    display: flex; flex-direction: column; align-items: center; gap: 2px; 
+    opacity: 0.5; /* النصوص بس هي اللي مطفية */
+    transition: 0.4s;
 }
+.step-text b { display: block; font-weight: 800; font-size: 14px; color: #1e293b; white-space: nowrap; }
+.step-text span { display: block; font-size: 11px; color: #94a3b8; font-weight: 600; }
+
+/* تأثير الـ Hover */
+.step-box:hover .icon-circle { transform: scale(1.15); border-color: #2563eb; color: #2563eb; }
+
+/* حالات التفعيل */
+.step-box.active .step-text, .step-box.current .step-text { opacity: 1; }
 
 .step-box.active .icon-circle { background: #10b981; color: white; border-color: #10b981; }
-.step-box.current .icon-circle { border: 3px solid #2563eb; color: #2563eb; }
-.step-box:hover .icon-circle { transform: scale(1.2) translateY(-5px); }
-
-.step-text b { display: block; font-weight: 800; font-size: 15px; margin-bottom: 3px; color: #1e293b; }
-.step-text span { font-size: 12px; color: #94a3b8; font-weight: 600; }
-
-/* --- الأزرار السفلية --- */
-.border-top { border-top: 1px solid #edf2f7 !important; }
-
-.btn-action {
-    width: 210px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    border: none;
+.step-box.current .icon-circle { 
+    background: #2563eb; color: white; border-color: #2563eb; 
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); 
 }
+.step-box.current b { color: #2563eb !important; }
 
-.btn-logout-highlight {
-    background: #ef4444;
-    color: white !important;
-}
+.icon-pulse { transform: scale(1.25); }
 
-.btn-logout-highlight:hover {
-    background: #dc2626;
-    transform: translateY(-3px);
-}
+/* الأزرار السفلية */
+.btn-action { width: 210px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50px; font-weight: 800; text-decoration: none; transition: 0.3s; border: none; }
+.btn-logout-highlight { background: #ef4444; color: white !important; }
+.whatsapp-btn-new { background: #10b981; color: white !important; }
+.btn-action i { margin: 0 10px; font-size: 18px; }
 
-.whatsapp-btn-new {
-    background: #10b981;
-    color: white !important;
-}
-
-.whatsapp-btn-new:hover {
-    background: #0d9469;
-    transform: translateY(-3px);
-}
-
-/* أيقونات الأزرار */
-.btn-action i {
-    margin: 0 10px;
-    font-size: 18px;
-    display: inline-block !important;
-}
-
-.btn-logout-highlight i {
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900;
-}
-
-.whatsapp-btn-new i {
-    font-family: "Font Awesome 6 Brands" !important;
-}
-
-/* الموبايل */
 @media (max-width: 991px) {
     .line-container { display: none; }
-    .steps-container { flex-direction: column; gap: 30px; }
-    .step-box { flex-direction: row; text-align: right; }
-    .icon-circle { margin: 0 0 0 15px; }
-    .justify-content-between.mt-5 { flex-direction: column !important; gap: 15px; }
-    .btn-action { width: 100%; }
+    .steps-container { flex-direction: column; gap: 25px; align-items: flex-start; }
+    .step-box { flex-direction: row; text-align: right; width: 100%; }
+    .icon-circle { margin-left: 15px; margin-bottom: 0; }
+    .step-text { align-items: flex-start; opacity: 1; }
 }

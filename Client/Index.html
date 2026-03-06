@@ -53,35 +53,35 @@
             <div class="timeline-wrapper">
                 <div class="line-container">
                     <div class="line-base"></div>
-                    <div class="line-progress" style="width: 66.6%;"></div>
+                    <div id="mainProgress" class="line-progress" style="width: 0%;"></div>
                 </div>
                 
                 <div class="steps-container">
-                    <div class="step-box active">
+                    <div class="step-box" data-status="active">
                         <div class="icon-circle"><i class="fa-solid fa-file-signature"></i></div>
                         <div class="step-text"><b>توقيع العقود</b><span>2025/01/10</span></div>
                     </div>
-                    <div class="step-box active">
+                    <div class="step-box" data-status="active">
                         <div class="icon-circle"><i class="fa-solid fa-border-all"></i></div>
                         <div class="step-text"><b>الأساسات</b><span>2025/03/15</span></div>
                     </div>
-                    <div class="step-box active">
+                    <div class="step-box" data-status="active">
                         <div class="icon-circle"><i class="fa-solid fa-building"></i></div>
                         <div class="step-text"><b>العظم</b><span>2025/08/20</span></div>
                     </div>
-                    <div class="step-box active">
+                    <div class="step-box" data-status="active">
                         <div class="icon-circle"><i class="fa-solid fa-plug-circle-bolt"></i></div>
                         <div class="step-text"><b>تأسيس الخدمات</b><span>2025/12/05</span></div>
                     </div>
-                    <div class="step-box current">
+                    <div class="step-box" data-status="current">
                         <div class="icon-circle"><i class="fa-solid fa-house-chimney-window"></i></div>
-                        <div class="step-text"><b class="blue-text">اللياسة والواجهات</b><span class="blue-text">جاري التنفيذ</span></div>
+                        <div class="step-text"><b>اللياسة والواجهات</b><span>جاري التنفيذ</span></div>
                     </div>
-                    <div class="step-box disabled">
+                    <div class="step-box" data-status="disabled">
                         <div class="icon-circle"><i class="fa-solid fa-faucet-drip"></i></div>
                         <div class="step-text"><b>التشطيبات</b><span>--</span></div>
                     </div>
-                    <div class="step-box disabled">
+                    <div class="step-box" data-status="disabled">
                         <div class="icon-circle"><i class="fa-solid fa-key"></i></div>
                         <div class="step-text"><b>التسليم</b><span>--</span></div>
                     </div>
@@ -92,15 +92,13 @@
                 <button class="btn-action btn-logout-highlight" onclick="logout()">
                     <span>تسجيل الخروج</span> <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
-                <a href="https://wa.me/966XXXXXXXXX" class="btn-action whatsapp-btn-new">
+                <a href="https://wa.me/966544607585" target="_blank" class="btn-action whatsapp-btn-new">
                     <span>تواصل واتساب</span> <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
         </div>
     </div>
 
-    <script>
-        function logout() { window.location.href = '/Login.html'; }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
