@@ -9,7 +9,6 @@
     html, body { height: 100%; margin: 0; overflow: hidden; font-family: 'Tajawal', sans-serif; direction: rtl; }
     .app-wrapper { display: flex; height: 100vh; width: 100vw; }
     
-    /* تثبيت عرض السايد بار تماماً */
     .sidebar {
         width: var(--sidebar-width); 
         min-width: var(--sidebar-width);
@@ -37,16 +36,22 @@
         font-weight: 500; 
         border-right: 4px solid transparent;
     }
-    /* تأثير عند الوقوف على القائمة */
+
+    .nav-menu li a i {
+        margin-left: 12px;
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+    }
+
     .nav-menu li a:hover { background: #f9f9f9; color: var(--accent-gold); }
     
-    /* حالة العنصر النشط */
+    /* تنسيق القائمة النشطة */
     .nav-menu li.active { background: #fcfcfc; }
     .nav-menu li.active a { color: var(--accent-gold); border-right-color: var(--accent-gold); font-weight: 700; }
     
     .sidebar-footer { padding: 20px; border-top: 1px solid #eef0f2; }
     
-    /* زر تسجيل الخروج */
     .logout-btn {
         width: 100%; 
         padding: 12px; 
@@ -64,16 +69,33 @@
     }
     .logout-btn:hover { background: #fef2f2; border-color: #fecaca; transform: translateY(-2px); }
 
-    .main-container { flex: 1; display: flex; flex-direction: column; background: var(--bg-light); overflow: hidden; }
+    .main-container { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        background: var(--bg-light); 
+        overflow: hidden; 
+        height: 100vh;
+    }
+
     .header-bar { 
-        height: 70px; 
+        height: 80px; 
         background: var(--white); 
         border-bottom: 1px solid #eef0f2; 
         display: flex; 
         align-items: center; 
         padding: 0 30px; 
+        flex-shrink: 0;
+        justify-content: flex-end; 
     }
-    .content-viewport { flex: 1; padding: 25px; overflow-y: auto; }
+
+    .content-viewport { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        overflow: hidden; 
+        padding: 0; 
+    }
 </style>
 
 <div class="app-wrapper">
@@ -83,15 +105,15 @@
             <h1 class="brand-name">EL RAWABI</h1>
         </div>
         <nav class="nav-menu">
-            <ul>
+            <ul id="main-nav-links">
                 <li id="menu-Dashboard.html">
-                    <a href="Dashboard.html"><i class="fa-solid fa-chart-line me-2"></i> لوحة التحكم</a>
+                    <a href="Dashboard.html"><i class="fa-solid fa-chart-line"></i> لوحة التحكم</a>
                 </li>
                 <li id="menu-Users.html">
-                    <a href="Users.html"><i class="fa-solid fa-users me-2"></i> المستخدمين</a>
+                    <a href="Users.html"><i class="fa-solid fa-users"></i> المستخدمين</a>
                 </li>
                 <li id="menu-Projects.html">
-                    <a href="#"><i class="fa-solid fa-building me-2"></i> المشاريع</a>
+                    <a href="Projects.html"><i class="fa-solid fa-building"></i> المشاريع</a>
                 </li>
             </ul>
         </nav>
@@ -102,11 +124,44 @@
             </button>
         </div>
     </aside>
+
     <main class="main-container">
         <header class="header-bar">
-            <h4 id="layout-title" style="margin:0; color:var(--primary-dark); font-weight: 700;"></h4>
         </header>
+        
         <div id="render-body" class="content-viewport">
             </div>
     </main>
 </div>
+
+<script>
+    function updateActiveMenu() {
+        const path = window.location.pathname;
+        const page = path.split("/").pop() || "Dashboard.html"; 
+
+        document.querySelectorAll('.nav-menu li').forEach(li => {
+            li.classList.remove('active');
+            if (li.id === `menu-${page}`) {
+                li.classList.add('active');
+            }
+        });
+    }
+
+    function handleLogout() {
+        console.log("جاري تسجيل الخروج...");
+        localStorage.removeItem('token'); 
+        sessionStorage.clear(); 
+        window.location.replace('Login.html'); 
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateActiveMenu();
+        document.addEventListener('click', (e) => {
+            const logoutBtn = e.target.closest('#layout-logout-btn');
+            if (logoutBtn) {
+                e.preventDefault();
+                handleLogout();
+            }
+        });
+    });
+</script>

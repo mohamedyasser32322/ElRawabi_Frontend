@@ -2,103 +2,73 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>الروابي | إدارة المستخدمين</title>
+    <title>نظام تتبع العقارات | الروابي</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/users.css">
 </head>
 <body>
+
     <div id="layout-root"></div>
 
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal fade" id="viewUserModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa-solid fa-user-plus me-3 text-primary"></i>إضافة مستخدم جديد</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content shadow border-0" style="border-radius: 20px;">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <h5 class="fw-bold m-0">ملف المستخدم</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <form id="addUserForm" class="needs-validation" novalidate>
+                <div class="modal-body p-4" id="viewUserBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow border-0" style="border-radius: 15px;">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <h5 class="fw-bold">إضافة مستخدم جديد</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="addUserForm">
+                        <div class="mb-3"><label class="form-label small fw-bold">الاسم الكامل</label><input type="text" id="regFullName" class="form-control" style="border-radius: 8px;" required></div>
+                        <div class="mb-3"><label class="form-label small fw-bold">البريد الإلكتروني</label><input type="email" id="regEmail" class="form-control" style="border-radius: 8px;" required></div>
+                        <div class="mb-3"><label class="form-label small fw-bold">رقم الهاتف</label><input type="text" id="regPhone" class="form-control" style="border-radius: 8px;" required></div>
+                        <div class="mb-3"><label class="form-label small fw-bold">كلمة المرور</label><input type="password" id="regPassword" class="form-control" style="border-radius: 8px;" required></div>
                         <div class="mb-3">
-                            <label class="form-label">الاسم الكامل</label>
-                            <input type="text" id="regFullName" class="form-control" placeholder="أدخل الاسم الثلاثي" required minlength="3">
+                            <label class="form-label small fw-bold">الصلاحية</label>
+                            <select id="regRole" class="form-select" style="border-radius: 8px;"><option value="1">Admin</option><option value="2">Employee</option><option value="3" selected>Client</option></select>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">البريد الإلكتروني</label>
-                            <input type="email" id="regEmail" class="form-control" placeholder="example@mail.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">رقم الهاتف</label>
-                            <input type="tel" id="regPhone" class="form-control" placeholder="05xxxxxxxx" required pattern="[0-9]{10,}">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">كلمة المرور</label>
-                            <input type="password" id="regPassword" class="form-control" placeholder="******" required minlength="6">
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">الصلاحية</label>
-                            <select id="regRole" class="form-select" required>
-                                <option value="" selected disabled>اختر الصلاحية...</option>
-                                <option value="1">Admin</option>
-                                <option value="2">Employee</option>
-                                <option value="3">Client</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="save-btn" id="saveUserBtn">حفظ البيانات</button>
+                        <button type="submit" class="save-btn">حفظ المستخدم</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="viewUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content shadow border-0" style="border-radius: 15px;">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <h5 class="fw-bold">تعديل بيانات المستخدم</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-4 pt-0" id="viewUserBody"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa-solid fa-user-pen me-3 text-success"></i>تعديل بيانات المستخدم</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+                <div class="modal-body p-4">
                     <form id="editUserForm">
                         <input type="hidden" id="editUserId">
+                        <div class="mb-3"><label class="form-label small fw-bold">الاسم</label><input type="text" id="editFullName" class="form-control" style="border-radius: 8px;"></div>
+                        <div class="mb-3"><label class="form-label small fw-bold">الهاتف</label><input type="text" id="editPhone" class="form-control" style="border-radius: 8px;"></div>
                         <div class="mb-3">
-                            <label class="form-label">الاسم الكامل</label>
-                            <input type="text" id="editFullName" class="form-control" placeholder="الاسم الجديد">
+                            <label class="form-label small fw-bold">الصلاحية</label>
+                            <select id="editRole" class="form-select" style="border-radius: 8px;"><option value="1">Admin</option><option value="2">Employee</option><option value="3">Client</option></select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">رقم الهاتف</label>
-                            <input type="tel" id="editPhone" class="form-control" placeholder="05xxxxxxxx">
+                            <label class="form-label small fw-bold">الحالة</label>
+                            <select id="editStatus" class="form-select" style="border-radius: 8px;"><option value="true">نشط</option><option value="false">معطل</option></select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">الصلاحية</label>
-                                <select id="editRole" class="form-select">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Employee</option>
-                                    <option value="3">Client</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">حالة الحساب</label>
-                                <select id="editStatus" class="form-select">
-                                    <option value="true">نشط</option>
-                                    <option value="false">معطل</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="save-btn" style="background: #10b981;" id="updateUserBtn">تحديث البيانات</button>
+                        <button type="submit" class="save-btn" style="background:#10b981">تحديث البيانات</button>
                     </form>
                 </div>
             </div>
@@ -107,15 +77,12 @@
 
     <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-body text-center p-4">
-                    <div class="text-danger mb-3"><i class="fa-solid fa-circle-exclamation fa-4x"></i></div>
-                    <h5 class="fw-bold mb-2">هل أنت متأكد؟</h5>
-                    <p class="text-muted small mb-4">سيتم حذف هذا المستخدم نهائياً من قائمة التشغيل.</p>
-                    <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-light w-100 fw-bold" data-bs-dismiss="modal">إلغاء</button>
-                        <button type="button" id="confirmDeleteBtn" class="btn btn-danger w-100 fw-bold">تأكيد الحذف</button>
-                    </div>
+            <div class="modal-content p-4 text-center border-0" style="border-radius: 15px;">
+                <div class="text-danger mb-3"><i class="fa-solid fa-circle-exclamation fa-3x"></i></div>
+                <h6 class="fw-bold">تأكيد حذف المستخدم؟</h6>
+                <div class="d-flex gap-2 mt-4">
+                    <button class="btn btn-light flex-grow-1" data-bs-dismiss="modal">إلغاء</button>
+                    <button id="confirmDeleteBtn" class="btn btn-danger flex-grow-1">حذف</button>
                 </div>
             </div>
         </div>
