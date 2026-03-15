@@ -24,23 +24,23 @@
             <div class="row g-0">
                 <div class="col-md-3 data-item">
                     <label>اسم العميل</label>
-                    <h6>عماد ياسر</h6>
+                    <h6 id="clientName">...</h6>
                 </div>
                 <div class="col-md-3 data-item">
                     <label>المشروع</label>
-                    <h6>عمارة الروابي 105 - حي البوادي</h6>
+                    <h6 id="projectName">...</h6>
                 </div>
                 <div class="col-md-2 data-item">
                     <label>رقم الوحدة</label>
-                    <h6>شقة 12 - الدور 3</h6>
+                    <h6 id="unitInfo">...</h6>
                 </div>
                 <div class="col-md-2 data-item">
                     <label>موعد التسليم</label>
-                    <h6 class="blue-text">فبراير 2026</h6>
+                    <h6 id="deliveryDate" class="blue-text">...</h6>
                 </div>
                 <div class="col-md-2 status-section">
-                    <span class="status-dot"></span>
-                    <strong>حساب نشط</strong>
+                    <span id="statusDot" class="status-dot"></span>
+                    <strong id="accountStatusText">...</strong>
                 </div>
             </div>
         </div>
@@ -98,7 +98,24 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold m-0" id="modalStageTitle">صور المرحلة</h5>
+                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="imagesContainer" class="row g-3">
+                        <div class="text-center py-5">
+                            <i class="fa-regular fa-image fa-3x mb-3 text-light"></i>
+                            <p class="text-muted">جاري تحميل الصور...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
